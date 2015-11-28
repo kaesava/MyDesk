@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+todos = Todo::Todo.create([{ userid: 0, title: 'sample title', 
+details: 'sample details', completed: TRUE, duedate: '01/01/2016' }])
+

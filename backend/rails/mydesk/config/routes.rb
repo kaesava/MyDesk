@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :todo do
+    resources :todos
+  end
+  namespace :todo do
+    resources :todos
+  end
+  namespace :todo do
+    resources :todos
+  end
 namespace :todo do
   # Directs /todo/todos/* to Todo::TodosController
   # (app/controllers/todo/todos_controller.rb)

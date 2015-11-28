@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Todo Todos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_todos.each do |todo_todo| %>
+      <tr>
+        <td><%= link_to 'Show', todo_todo %></td>
+        <td><%= link_to 'Edit', edit_todo_todo_path(todo_todo) %></td>
+        <td><%= link_to 'Destroy', todo_todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo', new_todo_todo_path %>

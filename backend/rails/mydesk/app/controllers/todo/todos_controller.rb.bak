@@ -1,0 +1,15 @@
+class Todo::TodosController < ApplicationController
+
+respond_to :html, :json
+
+def index
+  @todos = Todo::Todo.all
+  respond_with(@todos)
+end
+
+def show
+  @todo = Todo::Todo.find(params[:id])
+  respond_with(@todo)
+end
+
+end
