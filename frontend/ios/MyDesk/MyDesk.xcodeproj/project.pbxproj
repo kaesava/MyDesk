@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39B0BEDC1C09DE4D00A2A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BEDB1C09DE4D00A2A06A /* AppDelegate.swift */; };
+		39B0BEDF1C09DE4D00A2A06A /* MyDesk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BEDD1C09DE4D00A2A06A /* MyDesk.xcdatamodeld */; };
+		39B0BEE11C09DE4D00A2A06A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BEE01C09DE4D00A2A06A /* MasterViewController.swift */; };
+		39B0BEE31C09DE4D00A2A06A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BEE21C09DE4D00A2A06A /* DetailViewController.swift */; };
+		39B0BEE61C09DE4D00A2A06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B0BEE41C09DE4D00A2A06A /* Main.storyboard */; };
+		39B0BEE81C09DE4D00A2A06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B0BEE71C09DE4D00A2A06A /* Assets.xcassets */; };
+		39B0BEEB1C09DE4D00A2A06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B0BEE91C09DE4D00A2A06A /* LaunchScreen.storyboard */; };
+		39B0BEF61C09DE4D00A2A06A /* MyDeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BEF51C09DE4D00A2A06A /* MyDeskTests.swift */; };
+		39B0BF011C09DE4D00A2A06A /* MyDeskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0BF001C09DE4D00A2A06A /* MyDeskUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39B0BEF21C09DE4D00A2A06A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39B0BED01C09DE4D00A2A06A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39B0BED71C09DE4D00A2A06A;
+			remoteInfo = MyDesk;
+		};
+		39B0BEFD1C09DE4D00A2A06A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39B0BED01C09DE4D00A2A06A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39B0BED71C09DE4D00A2A06A;
+			remoteInfo = MyDesk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39B0BED81C09DE4D00A2A06A /* MyDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B0BEDB1C09DE4D00A2A06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		39B0BEDE1C09DE4D00A2A06A /* MyDesk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDesk.xcdatamodel; sourceTree = "<group>"; };
+		39B0BEE01C09DE4D00A2A06A /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		39B0BEE21C09DE4D00A2A06A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		39B0BEE51C09DE4D00A2A06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39B0BEE71C09DE4D00A2A06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39B0BEEA1C09DE4D00A2A06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39B0BEEC1C09DE4D00A2A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B0BEF11C09DE4D00A2A06A /* MyDeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B0BEF51C09DE4D00A2A06A /* MyDeskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDeskTests.swift; sourceTree = "<group>"; };
+		39B0BEF71C09DE4D00A2A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B0BEFC1C09DE4D00A2A06A /* MyDeskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDeskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B0BF001C09DE4D00A2A06A /* MyDeskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDeskUITests.swift; sourceTree = "<group>"; };
+		39B0BF021C09DE4D00A2A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39B0BED51C09DE4D00A2A06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEEE1C09DE4D00A2A06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEF91C09DE4D00A2A06A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39B0BECF1C09DE4D00A2A06A = {
+			isa = PBXGroup;
+			children = (
+				39B0BEDA1C09DE4D00A2A06A /* MyDesk */,
+				39B0BEF41C09DE4D00A2A06A /* MyDeskTests */,
+				39B0BEFF1C09DE4D00A2A06A /* MyDeskUITests */,
+				39B0BED91C09DE4D00A2A06A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39B0BED91C09DE4D00A2A06A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39B0BED81C09DE4D00A2A06A /* MyDesk.app */,
+				39B0BEF11C09DE4D00A2A06A /* MyDeskTests.xctest */,
+				39B0BEFC1C09DE4D00A2A06A /* MyDeskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39B0BEDA1C09DE4D00A2A06A /* MyDesk */ = {
+			isa = PBXGroup;
+			children = (
+				39B0BEDB1C09DE4D00A2A06A /* AppDelegate.swift */,
+				39B0BEE01C09DE4D00A2A06A /* MasterViewController.swift */,
+				39B0BEE21C09DE4D00A2A06A /* DetailViewController.swift */,
+				39B0BEE41C09DE4D00A2A06A /* Main.storyboard */,
+				39B0BEE71C09DE4D00A2A06A /* Assets.xcassets */,
+				39B0BEE91C09DE4D00A2A06A /* LaunchScreen.storyboard */,
+				39B0BEEC1C09DE4D00A2A06A /* Info.plist */,
+				39B0BEDD1C09DE4D00A2A06A /* MyDesk.xcdatamodeld */,
+			);
+			path = MyDesk;
+			sourceTree = "<group>";
+		};
+		39B0BEF41C09DE4D00A2A06A /* MyDeskTests */ = {
+			isa = PBXGroup;
+			children = (
+				39B0BEF51C09DE4D00A2A06A /* MyDeskTests.swift */,
+				39B0BEF71C09DE4D00A2A06A /* Info.plist */,
+			);
+			path = MyDeskTests;
+			sourceTree = "<group>";
+		};
+		39B0BEFF1C09DE4D00A2A06A /* MyDeskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39B0BF001C09DE4D00A2A06A /* MyDeskUITests.swift */,
+				39B0BF021C09DE4D00A2A06A /* Info.plist */,
+			);
+			path = MyDeskUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39B0BED71C09DE4D00A2A06A /* MyDesk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39B0BF051C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDesk" */;
+			buildPhases = (
+				39B0BED41C09DE4D00A2A06A /* Sources */,
+				39B0BED51C09DE4D00A2A06A /* Frameworks */,
+				39B0BED61C09DE4D00A2A06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyDesk;
+			productName = MyDesk;
+			productReference = 39B0BED81C09DE4D00A2A06A /* MyDesk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39B0BEF01C09DE4D00A2A06A /* MyDeskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39B0BF081C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDeskTests" */;
+			buildPhases = (
+				39B0BEED1C09DE4D00A2A06A /* Sources */,
+				39B0BEEE1C09DE4D00A2A06A /* Frameworks */,
+				39B0BEEF1C09DE4D00A2A06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39B0BEF31C09DE4D00A2A06A /* PBXTargetDependency */,
+			);
+			name = MyDeskTests;
+			productName = MyDeskTests;
+			productReference = 39B0BEF11C09DE4D00A2A06A /* MyDeskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39B0BEFB1C09DE4D00A2A06A /* MyDeskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39B0BF0B1C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDeskUITests" */;
+			buildPhases = (
+				39B0BEF81C09DE4D00A2A06A /* Sources */,
+				39B0BEF91C09DE4D00A2A06A /* Frameworks */,
+				39B0BEFA1C09DE4D00A2A06A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39B0BEFE1C09DE4D00A2A06A /* PBXTargetDependency */,
+			);
+			name = MyDeskUITests;
+			productName = MyDeskUITests;
+			productReference = 39B0BEFC1C09DE4D00A2A06A /* MyDeskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39B0BED01C09DE4D00A2A06A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					39B0BED71C09DE4D00A2A06A = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					39B0BEF01C09DE4D00A2A06A = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 39B0BED71C09DE4D00A2A06A;
+					};
+					39B0BEFB1C09DE4D00A2A06A = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 39B0BED71C09DE4D00A2A06A;
+					};
+				};
+			};
+			buildConfigurationList = 39B0BED31C09DE4D00A2A06A /* Build configuration list for PBXProject "MyDesk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39B0BECF1C09DE4D00A2A06A;
+			productRefGroup = 39B0BED91C09DE4D00A2A06A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39B0BED71C09DE4D00A2A06A /* MyDesk */,
+				39B0BEF01C09DE4D00A2A06A /* MyDeskTests */,
+				39B0BEFB1C09DE4D00A2A06A /* MyDeskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39B0BED61C09DE4D00A2A06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0BEEB1C09DE4D00A2A06A /* LaunchScreen.storyboard in Resources */,
+				39B0BEE81C09DE4D00A2A06A /* Assets.xcassets in Resources */,
+				39B0BEE61C09DE4D00A2A06A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEEF1C09DE4D00A2A06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEFA1C09DE4D00A2A06A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39B0BED41C09DE4D00A2A06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0BEDF1C09DE4D00A2A06A /* MyDesk.xcdatamodeld in Sources */,
+				39B0BEDC1C09DE4D00A2A06A /* AppDelegate.swift in Sources */,
+				39B0BEE11C09DE4D00A2A06A /* MasterViewController.swift in Sources */,
+				39B0BEE31C09DE4D00A2A06A /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEED1C09DE4D00A2A06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0BEF61C09DE4D00A2A06A /* MyDeskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39B0BEF81C09DE4D00A2A06A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B0BF011C09DE4D00A2A06A /* MyDeskUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39B0BEF31C09DE4D00A2A06A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39B0BED71C09DE4D00A2A06A /* MyDesk */;
+			targetProxy = 39B0BEF21C09DE4D00A2A06A /* PBXContainerItemProxy */;
+		};
+		39B0BEFE1C09DE4D00A2A06A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39B0BED71C09DE4D00A2A06A /* MyDesk */;
+			targetProxy = 39B0BEFD1C09DE4D00A2A06A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		39B0BEE41C09DE4D00A2A06A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39B0BEE51C09DE4D00A2A06A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39B0BEE91C09DE4D00A2A06A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39B0BEEA1C09DE4D00A2A06A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39B0BF031C09DE4D00A2A06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39B0BF041C09DE4D00A2A06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39B0BF061C09DE4D00A2A06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyDesk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDesk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		39B0BF071C09DE4D00A2A06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyDesk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDesk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		39B0BF091C09DE4D00A2A06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyDeskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDeskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDesk.app/MyDesk";
+			};
+			name = Debug;
+		};
+		39B0BF0A1C09DE4D00A2A06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyDeskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDeskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDesk.app/MyDesk";
+			};
+			name = Release;
+		};
+		39B0BF0C1C09DE4D00A2A06A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyDeskUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDeskUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyDesk;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		39B0BF0D1C09DE4D00A2A06A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyDeskUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kshetrapalapuram.kaesava.kalyanaraman.MyDeskUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyDesk;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39B0BED31C09DE4D00A2A06A /* Build configuration list for PBXProject "MyDesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B0BF031C09DE4D00A2A06A /* Debug */,
+				39B0BF041C09DE4D00A2A06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39B0BF051C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B0BF061C09DE4D00A2A06A /* Debug */,
+				39B0BF071C09DE4D00A2A06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39B0BF081C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDeskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B0BF091C09DE4D00A2A06A /* Debug */,
+				39B0BF0A1C09DE4D00A2A06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39B0BF0B1C09DE4D00A2A06A /* Build configuration list for PBXNativeTarget "MyDeskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B0BF0C1C09DE4D00A2A06A /* Debug */,
+				39B0BF0D1C09DE4D00A2A06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		39B0BEDD1C09DE4D00A2A06A /* MyDesk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				39B0BEDE1C09DE4D00A2A06A /* MyDesk.xcdatamodel */,
+			);
+			currentVersion = 39B0BEDE1C09DE4D00A2A06A /* MyDesk.xcdatamodel */;
+			path = MyDesk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 39B0BED01C09DE4D00A2A06A /* Project object */;
+}

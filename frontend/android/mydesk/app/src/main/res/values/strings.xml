@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyDesk</string>
+    <string name="title_todo_detail">Todo Detail</string>
+</resources>
