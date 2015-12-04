@@ -1,12 +1,10 @@
-package kalyanaraman.kaesava.kshetrapalapuram.todo.contentprovider;
+package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import kalyanaraman.kaesava.kshetrapalapuram.todo.Todo;
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -33,32 +31,22 @@ public class TodoContentProvider {
     }
 
     public static Todo getTodoById(String id) {
-        pullContentTest();
+        pullContent();
         return ITEM_MAP.get(id);
     }
 
     public static List<Todo> getTodos() {
-        pullContentTest();
+        pullContent();
         return ITEMS;
     }
 
-
     private static boolean pullContent() {
-
-        //Resty r = new Resty();
-        //String title =
-        //        r.json("http://localhost:3000/todo/todos/4.json").
-        //                addItem(new Todo(1, userid, "title1", "details1", true, new Date(2015, 1, 1)));
-        return true;
-    }
-
-    private static boolean pullContentTest() {
 
         ITEM_MAP.clear();
         ITEMS.clear();
 
-        addItem(new Todo(1, userid, "title1", "details1", true, new Date(2015, 1, 1)));
-        addItem(new Todo(2, userid, "title2", "details2", false, new Date(2015, 1, 2)));
+        addItem(new Todo(1, userid, "title11", "details1", new Date(2015, 1, 1), true));
+        addItem(new Todo(2, userid, "title22", "details2", new Date(2015, 1, 2), false));
         return true;
     }
 
