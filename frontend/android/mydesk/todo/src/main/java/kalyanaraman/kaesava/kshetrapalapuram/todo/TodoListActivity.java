@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import java.util.List;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskListActivity;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
 
 /**
  * An activity representing a list of Todos. This activity
@@ -26,13 +26,14 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class TodoListActivity extends AppCompatActivity {
+public class TodoListActivity extends MyDeskListActivity {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
      */
     private boolean mTwoPane;
+    private TodoList todoList = new TodoList();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +67,16 @@ public class TodoListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(TodoContentProvider.getTodos()));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(todoList));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<Todo> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<Todo> items) {
-            mValues = items;
+
+        public SimpleItemRecyclerViewAdapter(MyDeskObjectList myDeskObjectList) {
+            listObject = myDeskObjectList;
         }
 
         @Override
@@ -87,9 +88,9 @@ public class TodoListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = mValues.get(position);
-            holder.mIdView.setText(String.valueOf(mValues.get(position).getId()));
-            holder.mContentView.setText(mValues.get(position).getTitle());
+            holder.mItem = listObject.getObjectById(position);
+            holder.mIdView.setText(String.valueOf(listObject.getObjectById(position).getId()));
+            holder.mContentView.setText(((Todo) listObject.getObjectById(position)).getTitle());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,14 +116,14 @@ public class TodoListActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return mValues.size();
+            return listObject.getObjectCount();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public Todo mItem;
+            public MyDeskObject mItem;
 
             public ViewHolder(View view) {
                 super(view);

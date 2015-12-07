@@ -2,10 +2,13 @@ package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
 import java.util.Date;
 
+import kalyanaraman.kaesava.kshetrapalapuram.ContentProvider;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
+
 /**
  * Created by kaesava on 11/29/15.
  */
-public class Todo {
+public class Todo extends MyDeskObject {
     private int id;
     private int userid;
     private String title;
@@ -14,20 +17,13 @@ public class Todo {
     private boolean completed;
 
     public Todo(int id, int userid, String title, String details, Date duedate, boolean completed) {
+        super(id);
         this.id = id;
         this.userid = userid;
         this.title = title;
         this.details = details;
         this.duedate = duedate;
         this.completed = completed;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getUserid() {
@@ -69,5 +65,6 @@ public class Todo {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
 }
 
