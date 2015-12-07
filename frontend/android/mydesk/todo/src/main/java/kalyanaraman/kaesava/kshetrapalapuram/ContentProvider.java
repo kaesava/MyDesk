@@ -20,10 +20,10 @@ import java.io.InputStreamReader;
 
 public class ContentProvider extends AsyncTask<String, Void, String> {
 
-    private MyDeskListActivity activity;
+    private MyDeskObjectList objectList;
 
-    public ContentProvider(MyDeskListActivity activity) {
-        this.activity = activity;
+    public ContentProvider(MyDeskObjectList objectList) {
+        this.objectList = objectList;
     }
 
     @Override
@@ -63,8 +63,7 @@ public class ContentProvider extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String content) {
         super.onPostExecute(content);
-        activity.setRawContent(content);
-
+        objectList.updateOnRefresh(content);
     }
 
 }

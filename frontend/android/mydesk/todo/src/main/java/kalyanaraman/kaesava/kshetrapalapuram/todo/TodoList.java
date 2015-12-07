@@ -16,26 +16,30 @@ import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
  */
 public class TodoList extends MyDeskObjectList {
 
-    @Override
-    protected void refresh() {
-        super.refresh();
-        super.clear();
+    public TodoList() {
+        super();
+        reload();
+    }
 
-        //String url = "http://10.0.2.2:3000/todo/todos/1.json";
-        //ContentProvider c = new ContentProvider();
-        //c.execute(url);
-        String details = "details1";
-        Todo todo = new Todo(1, 1, "title11", details, new Date(2015, 1, 1), true);
-        addItem(todo);
-        todo = new Todo(1, 1, "title22", "details2", new Date(2015, 2, 2), false);
-        addItem(todo);
+    protected void reload() {
+        super.reload();
+        String url = "http://10.0.2.2:3000/todo/todos/1.json";
+        (new ContentProvider(this)).execute(url);
         return;
     }
 
-    //public static void contentReady(ContentProvider c) {
-    //   String details = c.getContent();
-    //   addItem(new Todo(1, 1, "title11", details, new Date(2015, 1, 1), true));
-    //   addItem(new Todo(2, 1, "title22", "details2", new Date(2015, 1, 2), false));
-    //}
+    /**
+     * Method called by Asych Task when data is downloaded.
+     * @param jsonString
+     */
+    @Override
+    protected void updateOnRefresh(String jsonString) {
+        super.clear();
+        String details = jsonString;
+        Todo todo = new Todo(1, 1, details, details, new Date(2015, 1, 1), true);
+        super.addItem(todo);
+        todo = new Todo(1, 1, "title22", "details2", new Date(2015, 2, 2), false);
+        super.addItem(todo);
+    }
 
 }

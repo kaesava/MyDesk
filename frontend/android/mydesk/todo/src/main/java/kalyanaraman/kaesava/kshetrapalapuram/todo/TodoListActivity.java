@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskListActivity;
-import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
-import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
 
 /**
  * An activity representing a list of Todos. This activity
@@ -33,7 +31,7 @@ public class TodoListActivity extends MyDeskListActivity {
      * device.
      */
     private boolean mTwoPane;
-    private TodoList todoList = new TodoList();;
+    private TodoList todoList = new TodoList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,11 @@ public class TodoListActivity extends MyDeskListActivity {
 
         View recyclerView = findViewById(R.id.todo_list);
         assert recyclerView != null;
+
+
         setupRecyclerView((RecyclerView) recyclerView);
+
+        todoList.addListener((RecyclerView) recyclerView);
 
         if (findViewById(R.id.todo_detail_container) != null) {
             // The detail container view will be present only in the
@@ -67,16 +69,14 @@ public class TodoListActivity extends MyDeskListActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(todoList));
+        recyclerView.setAdapter(new TodoItemRecyclerViewAdapter());
     }
 
-    public class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
+    public class TodoItemRecyclerViewAdapter
+            extends RecyclerView.Adapter<TodoItemRecyclerViewAdapter.ViewHolder> {
 
 
-
-        public SimpleItemRecyclerViewAdapter(MyDeskObjectList myDeskObjectList) {
-            listObject = myDeskObjectList;
+        public TodoItemRecyclerViewAdapter() {
         }
 
         @Override
@@ -88,9 +88,9 @@ public class TodoListActivity extends MyDeskListActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = listObject.getObjectById(position);
-            holder.mIdView.setText(String.valueOf(listObject.getObjectById(position).getId()));
-            holder.mContentView.setText(((Todo) listObject.getObjectById(position)).getTitle());
+            holder.mItem = (Todo) todoList.getObjectByPosition(position);
+            holder.mIdView.setText(String.valueOf(holder.mItem.getId()));
+            holder.mContentView.setText(holder.mItem.getTitle());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -116,14 +116,14 @@ public class TodoListActivity extends MyDeskListActivity {
 
         @Override
         public int getItemCount() {
-            return listObject.getObjectCount();
+            return todoList.getObjectCount();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public MyDeskObject mItem;
+            public Todo mItem;
 
             public ViewHolder(View view) {
                 super(view);
