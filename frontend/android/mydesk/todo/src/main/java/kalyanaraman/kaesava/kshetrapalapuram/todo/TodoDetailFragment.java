@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
-
 /**
  * A fragment representing a single Todo detail screen.
  * This fragment is either contained in a {@link TodoListActivity}
@@ -22,7 +20,7 @@ public class TodoDetailFragment extends Fragment {
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ITEM_KEY = "item_id";
 
     /**
      * The dummy content this fragment is presenting.
@@ -40,16 +38,12 @@ public class TodoDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            mItem = new Todo(5, 1, "title5", "details5", null, false);//(Todo) todoList.getObjectById(getArguments().getInt(ARG_ITEM_ID));
-
+        if (getArguments().containsKey(ITEM_KEY)) {
+            mItem = (Todo) getArguments().getParcelable(TodoDetailFragment.ITEM_KEY);
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.getTitle());
+                appBarLayout.setTitle("(ID " + mItem.getId() + "): " +  mItem.getTitle());
             }
         }
     }
@@ -62,6 +56,9 @@ public class TodoDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.todo_detail)).setText(mItem.getDetails());
+            ((TextView) rootView.findViewById(R.id.todo_userid)).setText(String.valueOf(mItem.getUserid()));
+            ((TextView) rootView.findViewById(R.id.todo_completed)).setText(String.valueOf(mItem.isCompleted()));
+            ((TextView) rootView.findViewById(R.id.todo_duedate)).setText("TODO"/* TODO: mItem.getDetails()*/);
         }
 
         return rootView;

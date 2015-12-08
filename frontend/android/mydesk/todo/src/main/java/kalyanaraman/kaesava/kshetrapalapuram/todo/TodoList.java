@@ -1,5 +1,12 @@
 package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,7 +30,7 @@ public class TodoList extends MyDeskObjectList {
 
     protected void reload() {
         super.reload();
-        String url = "http://10.0.2.2:3000/todo/todos/1.json";
+        String url = "http://10.0.2.2:3000/todo/todos.json";
         (new ContentProvider(this)).execute(url);
         return;
     }
@@ -35,11 +42,32 @@ public class TodoList extends MyDeskObjectList {
     @Override
     protected void updateOnRefresh(String jsonString) {
         super.clear();
-        String details = jsonString;
-        Todo todo = new Todo(1, 1, details, details, new Date(2015, 1, 1), true);
-        super.addItem(todo);
-        todo = new Todo(1, 1, "title22", "details2", new Date(2015, 2, 2), false);
-        super.addItem(todo);
+
+        int id, userid = -1;
+        String title, details = null;
+        Date duedate = null;
+        boolean completed;
+
+        try {
+            JSONArray jsonTodos = new JSONArray(jsonString);
+
+            for (int i = 0; i < jsonTodos.length(); i++) {
+                JSONObject jsonTodo = jsonTodos.optJSONObject(i);
+                id = jsonTodo.optInt("id");
+                userid = jsonTodo.optInt("userid");
+                title = jsonTodo.optString("title");
+                details = jsonTodo.optString("details");
+                completed = jsonTodo.optBoolean("completed");
+                duedate = (new SimpleDateFormat("yyyy-MM-dd")).parse(jsonTodo.optString("duedate"));
+                super.addItem(new Todo(id, userid, title, details, duedate, completed));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
+
 
 }

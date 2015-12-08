@@ -9,10 +9,16 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import kalyanaraman.kaesava.kshetrapalapuram.todo.Todo;
 
 /**
  * Created by kaesava on 3/12/15.
@@ -61,9 +67,9 @@ public class ContentProvider extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String content) {
-        super.onPostExecute(content);
-        objectList.updateOnRefresh(content);
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+        objectList.updateOnRefresh(result);
     }
 
 }

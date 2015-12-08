@@ -1,6 +1,8 @@
 package kalyanaraman.kaesava.kshetrapalapuram;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -62,12 +64,13 @@ public abstract class MyDeskObjectList {
         for (int i = 0; i < RECYCLERVIEW_LISTENERS.size(); i++) {
             RECYCLERVIEW_LISTENERS.get(i).getAdapter().notifyDataSetChanged();
         }
+
     }
 
     protected abstract void updateOnRefresh(String jsonString);
 
     public MyDeskObject getObjectByPosition(int position) {
-        if(position < 0 || position >= ITEMS.size()) {
+        if (position < 0 || position >= ITEMS.size()) {
             return null;
         }
         return ITEMS.get(position);

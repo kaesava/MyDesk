@@ -11,6 +11,10 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -31,7 +35,7 @@ public class TodoListActivity extends MyDeskListActivity {
      * device.
      */
     private boolean mTwoPane;
-    private TodoList todoList = new TodoList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +55,15 @@ public class TodoListActivity extends MyDeskListActivity {
             }
         });
 
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+
         View recyclerView = findViewById(R.id.todo_list);
         assert recyclerView != null;
 
+        setupRecyclerView((RecyclerView) recyclerView, progressBar);
 
-        setupRecyclerView((RecyclerView) recyclerView);
-
-        todoList.addListener((RecyclerView) recyclerView);
+        objectList = new TodoList();
+        objectList.addListener((RecyclerView) recyclerView);
 
         if (findViewById(R.id.todo_detail_container) != null) {
             // The detail container view will be present only in the
@@ -68,15 +74,18 @@ public class TodoListActivity extends MyDeskListActivity {
         }
     }
 
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new TodoItemRecyclerViewAdapter());
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView, ProgressBar progressBar) {
+        recyclerView.setAdapter(new TodoItemRecyclerViewAdapter(progressBar));
     }
 
     public class TodoItemRecyclerViewAdapter
             extends RecyclerView.Adapter<TodoItemRecyclerViewAdapter.ViewHolder> {
 
+        private final ProgressBar progressBar;
 
-        public TodoItemRecyclerViewAdapter() {
+        public TodoItemRecyclerViewAdapter(ProgressBar progressBar) {
+            this.progressBar = progressBar;
+
         }
 
         @Override
@@ -88,16 +97,24 @@ public class TodoListActivity extends MyDeskListActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = (Todo) todoList.getObjectByPosition(position);
+            progressBar.setVisibility(View.VISIBLE);
+            holder.mItem = (Todo) objectList.getObjectByPosition(position);
             holder.mIdView.setText(String.valueOf(holder.mItem.getId()));
-            holder.mContentView.setText(holder.mItem.getTitle());
+            holder.mTitleView.setText(holder.mItem.getTitle());
+            holder.mCompletedCheckboxView.setChecked(holder.mItem.isCompleted());
+            holder.mCompletedCheckboxView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    holder.mItem.setAndSendField("completed", String.valueOf(isChecked));
+                }
+            });
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(TodoDetailFragment.ARG_ITEM_ID, String.valueOf(holder.mItem.getId()));
+                        arguments.putParcelable(TodoDetailFragment.ITEM_KEY, holder.mItem);
                         TodoDetailFragment fragment = new TodoDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -106,35 +123,38 @@ public class TodoListActivity extends MyDeskListActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, TodoDetailActivity.class);
-                        intent.putExtra(TodoDetailFragment.ARG_ITEM_ID, String.valueOf(holder.mItem.getId()));
-
+                        intent.putExtra(TodoDetailFragment.ITEM_KEY, holder.mItem);
                         context.startActivity(intent);
                     }
                 }
             });
+            progressBar.setVisibility(View.GONE);
+
         }
 
         @Override
         public int getItemCount() {
-            return todoList.getObjectCount();
+            return objectList.getObjectCount();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
             public final TextView mIdView;
-            public final TextView mContentView;
+            public final TextView mTitleView;
+            public final CheckBox mCompletedCheckboxView;
             public Todo mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                mTitleView = (TextView) view.findViewById(R.id.title);
+                mCompletedCheckboxView = (CheckBox) view.findViewById(R.id.completed);
             }
 
             @Override
             public String toString() {
-                return super.toString() + " '" + mContentView.getText() + "'";
+                return super.toString() + " '" + mTitleView.getText() + "'";
             }
         }
     }

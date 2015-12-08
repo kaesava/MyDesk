@@ -54,8 +54,8 @@ public class TodoDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(TodoDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(TodoDetailFragment.ARG_ITEM_ID));
+            arguments.putParcelable(TodoDetailFragment.ITEM_KEY,
+                    getIntent().getParcelableExtra(TodoDetailFragment.ITEM_KEY));
             TodoDetailFragment fragment = new TodoDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

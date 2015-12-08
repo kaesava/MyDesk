@@ -17,17 +17,29 @@
     
     -->
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/todo_list"
-        android:name="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListFragment"
-        android:layout_width="@dimen/item_width"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layoutManager="LinearLayoutManager"
-        tools:context="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListActivity"
-        tools:listitem="@layout/todo_list_content" />
+        android:padding="@dimen/activity_vertical_margin">
+
+        <ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/todo_list"
+            android:name="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListFragment"
+            android:layout_width="@dimen/item_width"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListActivity"
+            tools:listitem="@layout/todo_list_content" />
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/todo_detail_container"
