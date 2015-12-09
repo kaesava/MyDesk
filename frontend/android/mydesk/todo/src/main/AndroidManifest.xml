@@ -29,6 +29,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListActivity" />
         </activity>
+        <activity
+            android:name=".TodoEditActivity"
+            android:label="@string/title_todo_edit"
+            android:parentActivityName=".TodoListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kalyanaraman.kaesava.kshetrapalapuram.todo.TodoListActivity" />
+        </activity>
     </application>
 
 </manifest>

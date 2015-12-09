@@ -2,4 +2,6 @@
     <string name="app_name">Todo</string>
     <string name="title_todo_list">Todos</string>
     <string name="title_todo_detail">Todo Detail</string>
+    <string name="title_todo_edit">Edit Todo</string>
+    <string name="button_edit">Edit</string>
 </resources>

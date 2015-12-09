@@ -3,10 +3,10 @@ package kalyanaraman.kaesava.kshetrapalapuram.todo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import kalyanaraman.kaesava.kshetrapalapuram.ContentProvider;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
 
 /**
@@ -35,7 +35,11 @@ public class Todo extends MyDeskObject {
         this.userid = Integer.parseInt(data[1]);
         this.title = data[2];
         this.details = data[3];
-        this.duedate = null; // TODO: FIXME .parseDate(data[4]);
+        try {
+            this.duedate = (new SimpleDateFormat("yyyy-MM-dd")).parse(data[4]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.completed = Boolean.parseBoolean(data[5]);
     }
 
@@ -51,7 +55,11 @@ public class Todo extends MyDeskObject {
 
     public boolean setAndSendField(String field_name, String value) {
         if (field_name == USER_ID) this.userid = Integer.parseInt(value);
-        if (field_name == DUE_DATE) this.duedate = null; //TODO;
+        if (field_name == DUE_DATE) try {
+            this.duedate = new SimpleDateFormat("yyyy-MM-dd").parse(value);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         if (field_name == COMPLETED) this.completed = Boolean.parseBoolean(value);
         if (field_name == TITLE) this.title = value;
         if (field_name == DETAILS) this.details = value;
@@ -86,7 +94,7 @@ public class Todo extends MyDeskObject {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[]{String.valueOf(this.id), String.valueOf(this.userid), this.title, this.details, String.valueOf(this.duedate), String.valueOf(this.completed)});
+        dest.writeStringArray(new String[]{String.valueOf(this.id), String.valueOf(this.userid), this.title, this.details, new SimpleDateFormat("yyyy-MM-dd").format(duedate), String.valueOf(this.completed)});
     }
 
     public static final Parcelable.Creator<Todo> CREATOR = new Parcelable.Creator<Todo>() {
@@ -102,5 +110,9 @@ public class Todo extends MyDeskObject {
         }
     };
 
+    @Override
+    protected String toJSONString() {
+        return "{'id':"+String.valueOf(id)+",'userid':"+String.valueOf(userid)+",'title':'"+title+"','details':'"+details+"','duedate':'"+ new SimpleDateFormat("yyyy-MM-dd").format(duedate)+"','completed':" + (completed?"true":"false") + "}";
+    }
 }
 

@@ -24,11 +24,11 @@ import kalyanaraman.kaesava.kshetrapalapuram.todo.Todo;
  * Created by kaesava on 3/12/15.
  */
 
-public class ContentProvider extends AsyncTask<String, Void, String> {
+public class AsyncContentProvider extends AsyncTask<String, Void, String> {
 
     private MyDeskObjectList objectList;
 
-    public ContentProvider(MyDeskObjectList objectList) {
+    public AsyncContentProvider(MyDeskObjectList objectList) {
         this.objectList = objectList;
     }
 
@@ -73,62 +73,3 @@ public class ContentProvider extends AsyncTask<String, Void, String> {
     }
 
 }
-/*
-public class ContentProvider {
-
-    public static String getContent(String url) {
-        HttpClient httpclient = new DefaultHttpClient();
-        String content = null;
-        HttpGet httpget = new HttpGet(url);
-        HttpResponse response = null;
-        InputStream instream = null;
-
-        try {
-            response = httpclient.execute(httpget);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null) {
-                instream = entity.getContent();
-                content = convertStreamToString(instream);
-            }
-
-        } catch (Exception e) {
-            // manage exceptions
-            e.getStackTrace();
-        } finally {
-            if (instream != null) {
-                try {
-                    instream.close();
-                } catch (Exception exc) {
-
-                }
-            }
-        }
-
-        return content;
-    }
-
-    private static String convertStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-            }
-        }
-
-        return sb.toString();
-    }
-
-
-
-}
-*/

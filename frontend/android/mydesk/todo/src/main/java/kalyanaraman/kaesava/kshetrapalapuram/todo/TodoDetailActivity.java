@@ -1,15 +1,19 @@
 package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * An activity representing a single Todo detail screen. This
@@ -18,6 +22,8 @@ import android.view.MenuItem;
  * in a {@link TodoListActivity}.
  */
 public class TodoDetailActivity extends AppCompatActivity {
+
+    private Todo todo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,8 @@ public class TodoDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        todo = (Todo) getIntent().getParcelableExtra(TodoDetailFragment.ITEM_KEY);
+
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
         // (e.g. when rotating the screen from portrait to landscape).
@@ -54,8 +62,7 @@ public class TodoDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putParcelable(TodoDetailFragment.ITEM_KEY,
-                    getIntent().getParcelableExtra(TodoDetailFragment.ITEM_KEY));
+            arguments.putParcelable(TodoDetailFragment.ITEM_KEY, todo);
             TodoDetailFragment fragment = new TodoDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -75,7 +82,9 @@ public class TodoDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, TodoListActivity.class));
+            Intent intent = new Intent(this, TodoListActivity.class);
+            NavUtils.navigateUpTo(this, intent);
+
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kalyanaraman.kaesava.kshetrapalapuram.todo.Todo;
+import kalyanaraman.kaesava.kshetrapalapuram.todo.TodoList;
+
 /**
  * Created by kaesava on 5/12/15.
  */
@@ -24,18 +27,14 @@ public abstract class MyDeskObjectList {
     private final List<RecyclerView> RECYCLERVIEW_LISTENERS = new ArrayList<RecyclerView>();
 
     public MyDeskObjectList() {
+        reloadData();
     }
 
-    public MyDeskObject getObjectById(int id) {
-        if (!ITEM_MAP.containsKey(id)) {
-            return null;
-        }
-        return ITEM_MAP.get(id);
-    }
-
-    protected void reload() {
+    public void reloadData() {
+        String url = "http://10.0.2.2:3000/" + getObjectListURLNamespace() + ".json";
         refreshDateTime = Calendar.getInstance().getTime();
-        /* needs to be implemented by sub-class */
+        (new AsyncContentProvider(this)).execute(url);
+        return;
     }
 
     protected void clear() {
@@ -74,5 +73,12 @@ public abstract class MyDeskObjectList {
             return null;
         }
         return ITEMS.get(position);
+    }
+
+    private String getObjectListURLNamespace() {
+        if(this.getClass() == TodoList.class) {
+            return "todo/todos";
+        }
+        return "";
     }
 }
