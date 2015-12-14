@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_JNPRIJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_JNPRIZ1kEeWMOOPWNbwA7Q" bindingContexts="_JNQgw51kEeWMOOPWNbwA7Q">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;seeds.rb&quot; tooltip=&quot;MyDesk/db/seeds.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/seeds.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todo.rb&quot; tooltip=&quot;MyDesk/app/models/todo/todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/models/todo/todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todo.rb&quot; tooltip=&quot;MyDesk/app/models/todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/models/todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;schema.rb&quot; tooltip=&quot;MyDesk/db/schema.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/schema.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;20151128072222_add_cols_to_todo.rb&quot; tooltip=&quot;MyDesk/db/migrate/20151128072222_add_cols_to_todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/migrate/20151128072222_add_cols_to_todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;20151128070940_create_todo_todos.rb&quot; tooltip=&quot;MyDesk/db/migrate/20151128070940_create_todo_todos.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/migrate/20151128070940_create_todo_todos.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;application_helper.rb&quot; tooltip=&quot;MyDesk/app/helpers/application_helper.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/helpers/application_helper.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todos_helper.rb&quot; tooltip=&quot;MyDesk/app/helpers/todo/todos_helper.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/helpers/todo/todos_helper.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todos_controller.rb&quot; tooltip=&quot;MyDesk/app/controllers/todo/todos_controller.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/todo/todos_controller.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;application_controller.rb&quot; tooltip=&quot;MyDesk/app/controllers/application_controller.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/application_controller.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;todos_controller.rb.bak&quot; tooltip=&quot;MyDesk/app/controllers/todo/todos_controller.rb.bak&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/todo/todos_controller.rb.bak&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;index.json.jbuilder&quot; tooltip=&quot;MyDesk/app/views/todo/todos/index.json.jbuilder&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/index.json.jbuilder&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;show.json.jbuilder&quot; tooltip=&quot;MyDesk/app/views/todo/todos/show.json.jbuilder&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/show.json.jbuilder&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.erb.html&quot; name=&quot;show.html.erb&quot; tooltip=&quot;MyDesk/app/views/todo/todos/show.html.erb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/show.html.erb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.erb.html&quot; name=&quot;index.html.erb&quot; tooltip=&quot;MyDesk/app/views/todo/todos/index.html.erb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/index.html.erb&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todos_controller.rb&quot; tooltip=&quot;MyDesk/app/controllers/todo/todos_controller.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/todo/todos_controller.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;application_controller.rb&quot; tooltip=&quot;MyDesk/app/controllers/application_controller.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/application_controller.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todo.rb&quot; tooltip=&quot;MyDesk/app/models/todo/todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/models/todo/todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;seeds.rb&quot; tooltip=&quot;MyDesk/db/seeds.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/seeds.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todo.rb&quot; tooltip=&quot;MyDesk/app/models/todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/models/todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;schema.rb&quot; tooltip=&quot;MyDesk/db/schema.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/schema.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;20151128072222_add_cols_to_todo.rb&quot; tooltip=&quot;MyDesk/db/migrate/20151128072222_add_cols_to_todo.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/migrate/20151128072222_add_cols_to_todo.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;20151128070940_create_todo_todos.rb&quot; tooltip=&quot;MyDesk/db/migrate/20151128070940_create_todo_todos.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/db/migrate/20151128070940_create_todo_todos.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;application_helper.rb&quot; tooltip=&quot;MyDesk/app/helpers/application_helper.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/helpers/application_helper.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.ruby&quot; name=&quot;todos_helper.rb&quot; tooltip=&quot;MyDesk/app/helpers/todo/todos_helper.rb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/helpers/todo/todos_helper.rb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;todos_controller.rb.bak&quot; tooltip=&quot;MyDesk/app/controllers/todo/todos_controller.rb.bak&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/controllers/todo/todos_controller.rb.bak&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;index.json.jbuilder&quot; tooltip=&quot;MyDesk/app/views/todo/todos/index.json.jbuilder&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/index.json.jbuilder&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;show.json.jbuilder&quot; tooltip=&quot;MyDesk/app/views/todo/todos/show.json.jbuilder&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/show.json.jbuilder&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.erb.html&quot; name=&quot;show.html.erb&quot; tooltip=&quot;MyDesk/app/views/todo/todos/show.html.erb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/show.html.erb&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.aptana.editor.erb.html&quot; name=&quot;index.html.erb&quot; tooltip=&quot;MyDesk/app/views/todo/todos/index.html.erb&quot;>&#xA;&lt;persistable path=&quot;/MyDesk/app/views/todo/todos/index.html.erb&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_JNPRIZ1kEeWMOOPWNbwA7Q" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_JNPRIp1kEeWMOOPWNbwA7Q" label="%trimmedwindow.label.eclipseSDK" x="42" y="23" width="1200" height="677">
@@ -50,8 +50,8 @@
           <tags>persp.viewSC:com.aptana.webserver.ui.view</tags>
           <tags>persp.viewSC:com.aptana.explorer.view</tags>
           <tags>persp.newWizSC:org.radrails.rails.ui.projectWizard</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_JNPRJZ1kEeWMOOPWNbwA7Q" selectedElement="_JNPRMZ1kEeWMOOPWNbwA7Q" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_JNPRJp1kEeWMOOPWNbwA7Q" containerData="2000" selectedElement="_JNPRJ51kEeWMOOPWNbwA7Q">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_JNPRJZ1kEeWMOOPWNbwA7Q" selectedElement="_JNPRJp1kEeWMOOPWNbwA7Q" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_JNPRJp1kEeWMOOPWNbwA7Q" containerData="2000" selectedElement="_JNPRLZ1kEeWMOOPWNbwA7Q">
               <children xsi:type="basic:PartStack" xmi:id="_JNPRJ51kEeWMOOPWNbwA7Q" elementId="left" containerData="7500" selectedElement="_JNPRKJ1kEeWMOOPWNbwA7Q">
                 <tags>newtablook</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRKJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_JNP5N51kEeWMOOPWNbwA7Q"/>
@@ -62,6 +62,7 @@
               </children>
               <children xsi:type="basic:PartStack" xmi:id="_JNPRLZ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.views.ContentOutlineMStack" containerData="2500" selectedElement="_JNPRLp1kEeWMOOPWNbwA7Q">
                 <tags>newtablook</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRLp1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.views.ContentOutline" ref="_JNP5dZ1kEeWMOOPWNbwA7Q"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRL51kEeWMOOPWNbwA7Q" elementId="com.aptana.samples.ui.SamplesView" ref="_JNP5m51kEeWMOOPWNbwA7Q"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRMJ1kEeWMOOPWNbwA7Q" elementId="com.aptana.snippets.ui.views.SnippetsView" ref="_JNP5nJ1kEeWMOOPWNbwA7Q"/>
@@ -71,7 +72,6 @@
               <children xsi:type="advanced:Placeholder" xmi:id="_JNPRMp1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_JNP5B51kEeWMOOPWNbwA7Q"/>
               <children xsi:type="basic:PartStack" xmi:id="_JNPRM51kEeWMOOPWNbwA7Q" elementId="terminalArea" containerData="2500" selectedElement="_JNPRNZ1kEeWMOOPWNbwA7Q">
                 <tags>newtablook</tags>
-                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRNJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.console.ConsoleView" ref="_JNP5cZ1kEeWMOOPWNbwA7Q"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRNZ1kEeWMOOPWNbwA7Q" elementId="com.aptana.terminal.views.terminal:1515a873521" ref="_JNP5rJ1kEeWMOOPWNbwA7Q"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JNPRNp1kEeWMOOPWNbwA7Q" elementId="com.aptana.terminal.views.terminal:*" toBeRendered="false" ref="_JNP5dJ1kEeWMOOPWNbwA7Q"/>
@@ -102,18 +102,30 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_JNP5B51kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.editorss" selectedElement="_JNP5CJ1kEeWMOOPWNbwA7Q">
-      <children xsi:type="basic:PartStack" xmi:id="_JNP5CJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_h9RCEJ5dEeWS5NdKyXZUig">
+      <children xsi:type="basic:PartStack" xmi:id="_JNP5CJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_fU26oJ_4EeWJSe8OEvFVVw">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <children xsi:type="basic:Part" xmi:id="_Nelz4J5cEeWGo6u9RdAi7w" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="todo.rb" iconURI="platform:/plugin/com.aptana.editor.ruby/icons/rb.png" tooltip="MyDesk/app/models/todo/todo.rb" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/app/models/todo/todo.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/app/models/todo/todo.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;108&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.ruby</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_h9RCEJ5dEeWS5NdKyXZUig" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="seeds.rb" iconURI="platform:/plugin/com.aptana.editor.ruby/icons/rb.png" tooltip="MyDesk/db/seeds.rb" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/db/seeds.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/db/seeds.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;565&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.aptana.editor.ruby</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_fU26oJ_4EeWJSe8OEvFVVw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="todos_controller.rb" iconURI="platform:/plugin/com.aptana.editor.ruby/icons/rb.png" tooltip="MyDesk/app/controllers/todo/todos_controller.rb" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/app/controllers/todo/todos_controller.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;517&quot; selectionTopPixel=&quot;193&quot;/>&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.aptana.editor.ruby</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_geDXUJ_4EeWJSe8OEvFVVw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="application_controller.rb" iconURI="platform:/plugin/com.aptana.editor.ruby/icons/rb.png" tooltip="MyDesk/app/controllers/application_controller.rb" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.aptana.editor.ruby&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MyDesk/app/controllers/application_controller.rb&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;248&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.ruby</tags>
           <tags>removeOnHide</tags>
@@ -164,6 +176,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_JNP5dp1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.views.ContentOutline">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -216,8 +230,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view>&#xA;&lt;title>Terminal&lt;/title>&#xA;&lt;workingDirectory>/Users/kaesava&lt;/workingDirectory>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Studio</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_JNP5rZ1kEeWMOOPWNbwA7Q" elementId="com.aptana.terminal.views.terminal">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -231,18 +243,18 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5uJ1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekoJ5cEeWS5NdKyXZUig" elementId="new.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekoZ5cEeWS5NdKyXZUig" elementId="newWizardDropDown"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekop5cEeWS5NdKyXZUig" elementId="new.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9eko55cEeWS5NdKyXZUig" elementId="save.group" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekpJ5cEeWS5NdKyXZUig" elementId="save"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekpZ5cEeWS5NdKyXZUig" elementId="saveAll"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9ekpp5cEeWS5NdKyXZUig" elementId="save.ext" visible="false"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_l9ekp55cEeWS5NdKyXZUig" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" enabled="false" command="_JNSVmZ1kEeWMOOPWNbwA7Q"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn8J5cEeWS5NdKyXZUig" elementId="print.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn8Z5cEeWS5NdKyXZUig" elementId="build.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn8p5cEeWS5NdKyXZUig" elementId="build.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn855cEeWS5NdKyXZUig" elementId="additions"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco8J6xEeWJSe8OEvFVVw" elementId="new.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco8Z6xEeWJSe8OEvFVVw" elementId="newWizardDropDown"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco8p6xEeWJSe8OEvFVVw" elementId="new.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco856xEeWJSe8OEvFVVw" elementId="save.group" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco9J6xEeWJSe8OEvFVVw" elementId="save"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco9Z6xEeWJSe8OEvFVVw" elementId="saveAll"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzco9p6xEeWJSe8OEvFVVw" elementId="save.ext" visible="false"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NzdQAJ6xEeWJSe8OEvFVVw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" enabled="false" command="_JNSVmZ1kEeWMOOPWNbwA7Q"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NziIgJ6xEeWJSe8OEvFVVw" elementId="print.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzivkJ6xEeWJSe8OEvFVVw" elementId="build.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzivkZ6xEeWJSe8OEvFVVw" elementId="build.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzivkp6xEeWJSe8OEvFVVw" elementId="additions"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5xZ1kEeWMOOPWNbwA7Q" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -250,29 +262,29 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP53J1kEeWMOOPWNbwA7Q" elementId="org.eclipse.debug.ui.breakpointActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TEAJ5cEeWS5NdKyXZUig" elementId="breakpointGroup"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrEJ5cEeWS5NdKyXZUig" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N03lQJ6xEeWJSe8OEvFVVw" elementId="breakpointGroup"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MUJ6xEeWJSe8OEvFVVw" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5351kEeWMOOPWNbwA7Q" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrEZ5cEeWS5NdKyXZUig" elementId="debug"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrEp5cEeWS5NdKyXZUig" elementId="com.aptana.js.debug.ui.actions.openURL"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrE55cEeWS5NdKyXZUig" elementId="com.aptana.js.debug.ui.actions.ToggleBreakpoint"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrFJ5cEeWS5NdKyXZUig" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrFZ5cEeWS5NdKyXZUig" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MUZ6xEeWJSe8OEvFVVw" elementId="debug"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MUp6xEeWJSe8OEvFVVw" elementId="com.aptana.js.debug.ui.actions.openURL"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MU56xEeWJSe8OEvFVVw" elementId="com.aptana.js.debug.ui.actions.ToggleBreakpoint"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MVJ6xEeWJSe8OEvFVVw" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MVZ6xEeWJSe8OEvFVVw" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP55Z1kEeWMOOPWNbwA7Q" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrFp5cEeWS5NdKyXZUig" elementId="Search"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrF55cEeWS5NdKyXZUig" elementId="org.eclipse.search.OpenSearchDialogPage"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MVp6xEeWJSe8OEvFVVw" elementId="Search"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MV56xEeWJSe8OEvFVVw" elementId="org.eclipse.search.OpenSearchDialogPage"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP56Z1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrGJ5cEeWS5NdKyXZUig" elementId="Presentation"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrGZ5cEeWS5NdKyXZUig" elementId="com.aptana.editor.common.toggleMarkOccurrences"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrGp5cEeWS5NdKyXZUig" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrG55cEeWS5NdKyXZUig" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l-TrHJ5cEeWS5NdKyXZUig" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MWJ6xEeWJSe8OEvFVVw" elementId="Presentation"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MWZ6xEeWJSe8OEvFVVw" elementId="com.aptana.editor.common.toggleMarkOccurrences"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MWp6xEeWJSe8OEvFVVw" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MW56xEeWJSe8OEvFVVw" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_N04MXJ6xEeWJSe8OEvFVVw" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5751kEeWMOOPWNbwA7Q" elementId="group.nav" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -280,12 +292,12 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP58Z1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn9J5cEeWS5NdKyXZUig" elementId="history.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn9Z5cEeWS5NdKyXZUig" elementId="group.application" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn9p5cEeWS5NdKyXZUig" elementId="backardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn955cEeWS5NdKyXZUig" elementId="forwardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9hn-J5cEeWS5NdKyXZUig" elementId="pin.group"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_l9iPAJ5cEeWS5NdKyXZUig" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin Editor" enabled="false" command="_JNRvF51kEeWMOOPWNbwA7Q"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzivk56xEeWJSe8OEvFVVw" elementId="history.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzivlJ6xEeWJSe8OEvFVVw" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzivlZ6xEeWJSe8OEvFVVw" elementId="backardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzivlp6xEeWJSe8OEvFVVw" elementId="forwardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_Nzivl56xEeWJSe8OEvFVVw" elementId="pin.group"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NzivmJ6xEeWJSe8OEvFVVw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin Editor" enabled="false" command="_JNRvF51kEeWMOOPWNbwA7Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5-Z1kEeWMOOPWNbwA7Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -297,8 +309,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_JNP5_Z1kEeWMOOPWNbwA7Q" elementId="org.eclipse.ui.workbench.help">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9iPAZ5cEeWS5NdKyXZUig" elementId="group.help"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_l9iPAp5cEeWS5NdKyXZUig" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzjWoJ6xEeWJSe8OEvFVVw" elementId="group.help"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_NzjWoZ6xEeWJSe8OEvFVVw" elementId="group.application" visible="false"/>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_JNP6AJ1kEeWMOOPWNbwA7Q" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
@@ -575,7 +587,7 @@
       <tags>platform:cocoa</tags>
     </bindings>
     <bindings xmi:id="_JNQfup1kEeWMOOPWNbwA7Q" keySequence="COMMAND+SHIFT+D" command="_JNSWCZ1kEeWMOOPWNbwA7Q"/>
-    <bindings xmi:id="_loEVUZ5cEeWS5NdKyXZUig" keySequence="COMMAND+CTRL+F" command="_JNSWQp1kEeWMOOPWNbwA7Q"/>
+    <bindings xmi:id="_NbL58Z6xEeWJSe8OEvFVVw" keySequence="COMMAND+CTRL+F" command="_JNSWQp1kEeWMOOPWNbwA7Q"/>
   </bindingTables>
   <bindingTables xmi:id="_JNQfvJ1kEeWMOOPWNbwA7Q" elementId="com.aptana.editor.common.outline" bindingContext="_JNQg2p1kEeWMOOPWNbwA7Q">
     <bindings xmi:id="_JNQfvZ1kEeWMOOPWNbwA7Q" keySequence="ALT+COMMAND++" command="_JNSU951kEeWMOOPWNbwA7Q"/>
@@ -822,7 +834,7 @@
     <bindings xmi:id="_JNQgdp1kEeWMOOPWNbwA7Q" keySequence="CTRL+D" command="_JNSU_J1kEeWMOOPWNbwA7Q"/>
   </bindingTables>
   <bindingTables xmi:id="_JNQgd51kEeWMOOPWNbwA7Q" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_JNQg151kEeWMOOPWNbwA7Q">
-    <bindings xmi:id="_loE8YJ5cEeWS5NdKyXZUig" keySequence="M1+W" command="_JNSWRJ1kEeWMOOPWNbwA7Q"/>
+    <bindings xmi:id="_NbMhAJ6xEeWJSe8OEvFVVw" keySequence="M1+W" command="_JNSWRJ1kEeWMOOPWNbwA7Q"/>
   </bindingTables>
   <bindingTables xmi:id="_JNQgeZ1kEeWMOOPWNbwA7Q" bindingContext="_JNQg3Z1kEeWMOOPWNbwA7Q"/>
   <bindingTables xmi:id="_JNQgep1kEeWMOOPWNbwA7Q" bindingContext="_JNQg3p1kEeWMOOPWNbwA7Q"/>

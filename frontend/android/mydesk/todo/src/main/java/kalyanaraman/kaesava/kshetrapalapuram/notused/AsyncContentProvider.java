@@ -1,4 +1,4 @@
-package kalyanaraman.kaesava.kshetrapalapuram;
+package kalyanaraman.kaesava.kshetrapalapuram.notused;
 
 
 import android.os.AsyncTask;
@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
 import kalyanaraman.kaesava.kshetrapalapuram.todo.Todo;
 
 /**
@@ -69,7 +70,41 @@ public class AsyncContentProvider extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        objectList.updateOnRefresh(result);
+        //objectList.updateOnRefresh(result);
     }
 
 }
+
+/* CODE FROM TodoList.java */
+/**
+ * Method called by Asych Task when data is downloaded.
+ *
+ * @param jsonString
+ */
+    /*protected void updateOnRefresh(String jsonString) {
+        super.clear();
+
+        int id, userid = -1;
+        String title, details = null;
+        Date duedate = null;
+        boolean completed;
+
+        try {
+            JSONArray jsonTodos = new JSONArray(jsonString);
+
+            for (int i = 0; i < jsonTodos.length(); i++) {
+                JSONObject jsonTodo = jsonTodos.optJSONObject(i);
+                id = jsonTodo.optInt("id");
+                userid = jsonTodo.optInt("userid");
+                title = jsonTodo.optString("title");
+                details = jsonTodo.optString("details");
+                completed = jsonTodo.optBoolean("completed");
+                duedate = (new SimpleDateFormat("yyyy-MM-dd")).parse(jsonTodo.optString("duedate"));
+                super.addItem(new Todo(id, userid, title, details, duedate, completed));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }*/

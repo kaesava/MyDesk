@@ -3,68 +3,139 @@ package kalyanaraman.kaesava.kshetrapalapuram.todo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskRESTClient;
 
 /**
  * Created by kaesava on 11/29/15.
  */
 public class Todo extends MyDeskObject {
-    private int userid;
-    private String title;
-    private String details;
-    private Date duedate;
-    private boolean completed;
+    private int userid = 0;
+    private String title = "";
+    private String details = "";
+    private Date duedate = Calendar.getInstance().getTime();
+    private boolean completed = false;
 
 
-    private final String USER_ID = "userid";
-    private final String DUE_DATE = "duedate";
-    private final String COMPLETED = "completed";
-    private final String TITLE = "title";
-    private final String DETAILS = "details";
+    public static final String USER_ID = "userid";
+    public static final String DUE_DATE = "duedate";
+    public static final String COMPLETED = "completed";
+    public static final String TITLE = "title";
+    public static final String DETAILS = "details";
+
+    public Todo() {
+        super();
+    }
+
+    public Todo(JSONObject jsonTodo) {
+        super(jsonTodo);
+        setUserid(jsonTodo.optInt("userid"));
+        setTitle(jsonTodo.optString("title"));
+        setDetails(jsonTodo.optString("details"));
+        setCompleted(jsonTodo.optBoolean("completed"));
+        try {
+            setDuedate((new SimpleDateFormat("yyyy-MM-dd")).parse(jsonTodo.optString("duedate")));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Todo(Parcel in) {
         super();
         String[] data = new String[6];
 
         in.readStringArray(data);
-        this.id = Integer.parseInt(data[0]);
-        this.userid = Integer.parseInt(data[1]);
-        this.title = data[2];
-        this.details = data[3];
+        setId(Integer.parseInt(data[0]));
+        setUserid(Integer.parseInt(data[1]));
+        setTitle(data[2]);
+        setDetails(data[3]);
         try {
-            this.duedate = (new SimpleDateFormat("yyyy-MM-dd")).parse(data[4]);
+            setDuedate((new SimpleDateFormat("yyyy-MM-dd")).parse(data[4]));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         this.completed = Boolean.parseBoolean(data[5]);
     }
 
-    public Todo(int id, int userid, String title, String details, Date duedate, boolean completed) {
-        super(id);
-        this.id = id;
-        this.userid = userid;
-        this.title = title;
-        this.details = details;
-        this.duedate = duedate;
-        this.completed = completed;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public boolean setAndSendField(String field_name, String value) {
-        if (field_name == USER_ID) this.userid = Integer.parseInt(value);
-        if (field_name == DUE_DATE) try {
-            this.duedate = new SimpleDateFormat("yyyy-MM-dd").parse(value);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if (field_name == COMPLETED) this.completed = Boolean.parseBoolean(value);
-        if (field_name == TITLE) this.title = value;
-        if (field_name == DETAILS) this.details = value;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(new String[]{String.valueOf(this.id), String.valueOf(this.userid), this.title, this.details, new SimpleDateFormat("yyyy-MM-dd").format(duedate), (this.completed ? "true" : "false")});
+    }
 
-        return sendtoServer(this.id, field_name, value);
+    public static final Parcelable.Creator<Todo> CREATOR = new Parcelable.Creator<Todo>() {
+
+        @Override
+        public Todo createFromParcel(Parcel source) {
+            return new Todo(source);
+        }
+
+        @Override
+        public Todo[] newArray(int size) {
+            return new Todo[size];
+        }
+    };
+
+
+    public static List<String> validateFieldsAsStrings(Map<String, String> nameValuePairs) {
+        List<String> validation_errors = MyDeskObject.validateFieldsAsStrings(nameValuePairs);
+        if (nameValuePairs == null || nameValuePairs.isEmpty()) { // nothing to validate
+            return validation_errors;
+        }
+        if (nameValuePairs.containsKey(Todo.TITLE) && (nameValuePairs.get(Todo.TITLE) == null || nameValuePairs.get(Todo.TITLE).trim().equals(""))) {
+            validation_errors.add("Title is a required field");
+            return validation_errors;
+        }
+        return validation_errors;
+        //TODO: Validate other fields
+    }
+
+    public List<String> updateFieldsAsStrings(Map<String, String> nameValuePairs, boolean send_to_server) {
+        List<String> validation_errors = Todo.validateFieldsAsStrings(nameValuePairs);
+        if (!validation_errors.isEmpty()) {
+            return validation_errors;
+        }
+        for (int i = 0; i < nameValuePairs.keySet().size(); i++) {
+            String field_name = (String) nameValuePairs.keySet().toArray()[i];
+            String value = nameValuePairs.get(field_name);
+
+            if (field_name.equals(DUE_DATE)) try {
+                setDuedate(new SimpleDateFormat("yyyy-MM-dd").parse(value));
+            } catch (ParseException e) {
+                e.printStackTrace();
+                validation_errors.add("Due data badly formatted");
+                return validation_errors;
+            }
+            if (field_name.equals(COMPLETED)) setCompleted(Boolean.parseBoolean(value));
+            if (field_name.equals(TITLE)) setTitle(value);
+            if (field_name.equals(DETAILS)) setDetails(value);
+        }
+        if (!send_to_server) {
+            return validation_errors;
+        }
+        if (getId() == 0) {
+            MyDeskRESTClient.syncObject(this, MyDeskRESTClient.POST);
+        } else {
+            MyDeskRESTClient.syncObject(this, MyDeskRESTClient.PUT);
+        }
+        if (getLastWriteError().equals(MyDeskObject.ERROR_CODE)) {
+            validation_errors.add("Error saving");
+            return validation_errors;
+        }
+        return validation_errors;
     }
 
     public int getUserid() {
@@ -87,32 +158,24 @@ public class Todo extends MyDeskObject {
         return completed;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    private void setUserid(int userid) {
+        this.userid = userid;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[]{String.valueOf(this.id), String.valueOf(this.userid), this.title, this.details, new SimpleDateFormat("yyyy-MM-dd").format(duedate), String.valueOf(this.completed)});
+    private void setTitle(String title) {
+        this.title = title;
     }
 
-    public static final Parcelable.Creator<Todo> CREATOR = new Parcelable.Creator<Todo>() {
+    private void setDetails(String details) {
+        this.details = details;
+    }
 
-        @Override
-        public Todo createFromParcel(Parcel source) {
-            return new Todo(source);
-        }
+    private void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 
-        @Override
-        public Todo[] newArray(int size) {
-            return new Todo[size];
-        }
-    };
-
-    @Override
-    protected String toJSONString() {
-        return "{'id':"+String.valueOf(id)+",'userid':"+String.valueOf(userid)+",'title':'"+title+"','details':'"+details+"','duedate':'"+ new SimpleDateFormat("yyyy-MM-dd").format(duedate)+"','completed':" + (completed?"true":"false") + "}";
+    private void setDuedate(Date duedate) {
+        this.duedate = duedate;
     }
 }
 

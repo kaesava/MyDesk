@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TodoEditFragment">
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/button_save" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_title" />
+
+        <EditText
+            android:id="@+id/edit_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter To-do title" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_details" />
+
+        <EditText
+            android:id="@+id/edit_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter To-do details" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/edit_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/todo_completed" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_duedate" />
+
+        <EditText
+            android:id="@+id/edit_duedate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter date in YYYY-MM-DD format" />
+    </LinearLayout>
+</LinearLayout>

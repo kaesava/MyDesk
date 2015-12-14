@@ -20,30 +20,19 @@ import kalyanaraman.kaesava.kshetrapalapuram.todo.TodoList;
 public abstract class MyDeskObjectList {
 
 
-    protected Date refreshDateTime = null;
+    protected Date refreshDateTime = Calendar.getInstance().getTime();
 
     private final List<MyDeskObject> ITEMS = new ArrayList<MyDeskObject>();
     private final Map<Integer, MyDeskObject> ITEM_MAP = new HashMap<Integer, MyDeskObject>();
     private final List<RecyclerView> RECYCLERVIEW_LISTENERS = new ArrayList<RecyclerView>();
 
-    public MyDeskObjectList() {
-        reloadData();
-    }
-
-    public void reloadData() {
-        String url = "http://10.0.2.2:3000/" + getObjectListURLNamespace() + ".json";
-        refreshDateTime = Calendar.getInstance().getTime();
-        (new AsyncContentProvider(this)).execute(url);
-        return;
-    }
-
-    protected void clear() {
+    public void clear() {
         ITEM_MAP.clear();
         ITEMS.clear();
         triggerRecyclerViewRefresh();
     }
 
-    protected void addItem(MyDeskObject item) {
+    public void addItem(MyDeskObject item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getId(), item);
         triggerRecyclerViewRefresh();
@@ -63,10 +52,7 @@ public abstract class MyDeskObjectList {
         for (int i = 0; i < RECYCLERVIEW_LISTENERS.size(); i++) {
             RECYCLERVIEW_LISTENERS.get(i).getAdapter().notifyDataSetChanged();
         }
-
     }
-
-    protected abstract void updateOnRefresh(String jsonString);
 
     public MyDeskObject getObjectByPosition(int position) {
         if (position < 0 || position >= ITEMS.size()) {
@@ -75,10 +61,7 @@ public abstract class MyDeskObjectList {
         return ITEMS.get(position);
     }
 
-    private String getObjectListURLNamespace() {
-        if(this.getClass() == TodoList.class) {
-            return "todo/todos";
-        }
-        return "";
+    public void refreshUpdateDatetime() {
+        refreshDateTime = Calendar.getInstance().getTime();
     }
 }

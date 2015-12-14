@@ -4,4 +4,14 @@
     <string name="title_todo_detail">Todo Detail</string>
     <string name="title_todo_edit">Edit Todo</string>
     <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="todo_title">Title</string>
+    <string name="todo_details">Details</string>
+    <string name="todo_duedate">Due Date</string>
+    <string name="todo_completed">Completed?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

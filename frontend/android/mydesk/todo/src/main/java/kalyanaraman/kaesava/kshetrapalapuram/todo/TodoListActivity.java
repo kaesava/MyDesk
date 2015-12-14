@@ -7,18 +7,22 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskListActivity;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskRESTClient;
 
 /**
  * An activity representing a list of Todos. This activity
@@ -50,8 +54,12 @@ public class TodoListActivity extends MyDeskListActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Context context = view.getContext();
+                Intent intent = new Intent(context, TodoEditActivity.class);
+                intent.putExtra(TodoDetailFragment.ITEM_KEY, new Todo());
+                context.startActivity(intent);
+                startActivity(intent);
+                return;
             }
         });
 
@@ -64,6 +72,8 @@ public class TodoListActivity extends MyDeskListActivity {
 
         objectList = new TodoList();
         objectList.addListener((RecyclerView) recyclerView);
+
+        MyDeskRESTClient.syncObjectList(objectList, MyDeskRESTClient.GET);
 
         if (findViewById(R.id.todo_detail_container) != null) {
             // The detail container view will be present only in the
@@ -99,13 +109,21 @@ public class TodoListActivity extends MyDeskListActivity {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             progressBar.setVisibility(View.VISIBLE);
             holder.mItem = (Todo) objectList.getObjectByPosition(position);
-            holder.mIdView.setText(String.valueOf(holder.mItem.getId()));
             holder.mTitleView.setText(holder.mItem.getTitle());
             holder.mCompletedCheckboxView.setChecked(holder.mItem.isCompleted());
             holder.mCompletedCheckboxView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    holder.mItem.setAndSendField("completed", String.valueOf(isChecked));
+
+                    Map<String, String> nameValuePairs = new HashMap<String, String>();
+                    nameValuePairs.put(Todo.COMPLETED, (isChecked ? "true" : "false"));
+                    boolean send_to_server = true;
+                    List<String> validation_errors = holder.mItem.updateFieldsAsStrings(nameValuePairs, send_to_server);
+                    if (validation_errors.isEmpty()) {
+                        Toast.makeText(getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getBaseContext(), validation_errors.get(0), Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
@@ -113,10 +131,7 @@ public class TodoListActivity extends MyDeskListActivity {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putParcelable(TodoDetailFragment.ITEM_KEY, holder.mItem);
-                        TodoDetailFragment fragment = new TodoDetailFragment();
-                        fragment.setArguments(arguments);
+                        TodoDetailFragment fragment = TodoDetailFragment.newInstance(holder.mItem);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.todo_detail_container, fragment)
                                 .commit();
@@ -139,7 +154,6 @@ public class TodoListActivity extends MyDeskListActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
-            public final TextView mIdView;
             public final TextView mTitleView;
             public final CheckBox mCompletedCheckboxView;
             public Todo mItem;
@@ -147,7 +161,6 @@ public class TodoListActivity extends MyDeskListActivity {
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
                 mTitleView = (TextView) view.findViewById(R.id.title);
                 mCompletedCheckboxView = (CheckBox) view.findViewById(R.id.completed);
             }

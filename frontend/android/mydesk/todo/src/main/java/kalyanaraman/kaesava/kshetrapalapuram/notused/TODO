@@ -1,0 +1,5 @@
+"Create"
+- Create Activity linked to +
+- Re-use Edit sub-view
+- Ensure it triggers validation
+- Send to server (post)

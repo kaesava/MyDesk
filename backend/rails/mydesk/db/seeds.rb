@@ -10,4 +10,4 @@ Todo::Todo.create!(userid: 1, title: 'sample title',
 details: 'sample details', completed: true, duedate: '01/01/2016')
 
 Todo::Todo.create!(userid: 2, title: 'sample title2', 
-details: 'sample details2', completed: true, duedate: '02/02/2016')
+details: 'sample details2', completed: false, duedate: '02/02/2016')
