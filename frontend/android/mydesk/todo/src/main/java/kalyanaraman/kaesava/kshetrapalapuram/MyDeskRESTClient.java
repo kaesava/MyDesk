@@ -30,33 +30,37 @@ public class MyDeskRESTClient {
         if (myDeskObject instanceof Todo) {
             subURL = TODO_SUB_URL;
         }
-        RequestParams params = new RequestParams(myDeskObject.toHashMap());
-        String url;
-        if (http_method.equals(MyDeskRESTClient.POST)) { //create new
-            params.remove(MyDeskObject.ID);
-            url = subURL;
-        } else {
-            url = subURL + "/" + String.valueOf(myDeskObject.getId());
-        }
-        url = BASE_URL + url + ".json";
+        RequestParams params = null;
+        String url = BASE_URL + subURL + "/" + String.valueOf(myDeskObject.getId()) + ".json";
         JsonHttpResponseHandler handler = null;
+
         switch (http_method) {
-            case GET:
-                // TODO: handle get one object
-                //GthObjectJSONHandler handler = new GthObjectJSONHandler(myDeskObject);
-                //client.get(url, null, handler);
-                break;
-            case PUT:
+            case DELETE:
+                params = new RequestParams();
+                params.add(MyDeskObject.ID, String.valueOf(myDeskObject.getId()));
                 handler = new PutObjectJSONHandler(myDeskObject);
-                client.put(url, params, handler);
+                client.delete(url, params, handler);
                 break;
             case POST:
+                params = new RequestParams(myDeskObject.toHashMap());
+                params.remove(MyDeskObject.ID);
+                url = BASE_URL + subURL + ".json";
                 handler = new PostObjectJSONHandler(myDeskObject);
                 client.post(url, params, handler);
                 break;
-            case DELETE:
+            case PUT:
+                params = new RequestParams(myDeskObject.toHashMap());
                 handler = new PutObjectJSONHandler(myDeskObject);
-                client.delete(url, params, handler);
+                client.put(url, params, handler);
+                break;
+            case GET:
+                params = new RequestParams();
+                params.add(MyDeskObject.ID, String.valueOf(myDeskObject.getId()));
+                handler = new GetObjectJSONHandler(myDeskObject);
+                client.get(url, params, handler);
+                break;
+            default:
+
                 break;
         }
     }
@@ -93,7 +97,8 @@ public class MyDeskRESTClient {
                 for (int i = 0; i < responses.length(); i++) {
                     jsonObject = (JSONObject) responses.get(i);
                     if (objectList instanceof TodoList) {
-                        object = new Todo(jsonObject);
+                        object = new Todo();
+                        object.updateUsingJSONObject(jsonObject);
                     }
                     if (object != null) {
                         objectList.addItem(object);
@@ -102,6 +107,34 @@ public class MyDeskRESTClient {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    private static class GetObjectJSONHandler extends JsonHttpResponseHandler {
+
+        private MyDeskObject object = null;
+
+        public GetObjectJSONHandler(MyDeskObject object) {
+            this.object = object;
+        }
+
+        @Override
+        public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+            JSONObject jsonObject = null;
+
+            if (object instanceof Todo) {
+                object = new Todo();
+                object.updateUsingJSONObject(jsonObject);
+            }
+        }
+
+        @Override
+        public void onFailure(int statusCode, cz.
+                msebera.android.httpclient.Header[] headers, String jsonResponse, Throwable throwable) {
+            object.clearLastWriteError();
+            if (statusCode != 200) {
+                object.setLastWriteError(MyDeskObject.ERROR_CODE);
             }
         }
     }

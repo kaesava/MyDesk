@@ -26,8 +26,8 @@ public abstract class MyDeskObject implements Parcelable {
     public MyDeskObject() {
     }
 
-    public MyDeskObject(JSONObject jsonTodo) {
-        setId(jsonTodo.optInt("id"));
+    protected void updateUsingJSONObject(JSONObject jsonObject) {
+        setId(jsonObject.optInt("id"));
     }
 
     public int getId() {
@@ -105,5 +105,7 @@ public abstract class MyDeskObject implements Parcelable {
     public void setLastWriteError(String lastWriteError) {
         this.lastWriteError = lastWriteError;
     }
+
+
 }
 

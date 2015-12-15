@@ -98,9 +98,8 @@ public class TodoEditActivity extends AppCompatActivity implements TodoEditFragm
         boolean send_to_server = true;
         List<String> validation_errors = todo.updateFieldsAsStrings(nameValuePairs, send_to_server);
         if (validation_errors.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this.getApplicationContext(), TodoDetailActivity.class);
-            intent.putExtra(TodoDetailFragment.ITEM_KEY, todo);
+            Toast.makeText(getBaseContext(), R.string.toastmsg_saved, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this.getApplicationContext(), TodoListActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(getBaseContext(), validation_errors.get(0), Toast.LENGTH_SHORT).show();

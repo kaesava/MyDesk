@@ -92,12 +92,8 @@ public class TodoDetailFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean okToDelete = false;
-                if (okToDelete) {
-                    AlertDialog diaBox = getAskDialog();
-                    diaBox.show();
-
-                }
+                AlertDialog diaBox = getAskDialog();
+                diaBox.show();
                 return;
             }
         });
@@ -107,8 +103,8 @@ public class TodoDetailFragment extends Fragment {
     private AlertDialog getAskDialog() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(getActivity())
                 //set message, title, and icon
-                .setTitle("Delete")
-                .setMessage("Do you want to Delete")
+                .setTitle(R.string.button_delete)
+                .setMessage(R.string.delete_conf_msg)
                 .setIcon(R.drawable.ic_delete_black_24dp)
 
                 .setPositiveButton(R.string.button_delete, new DialogInterface.OnClickListener() {
@@ -119,7 +115,7 @@ public class TodoDetailFragment extends Fragment {
                         if (error_saving) {
                             Toast.makeText(getActivity().getBaseContext(), errorMsg, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getActivity().getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity().getBaseContext(), R.string.toastmsg_deleted, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(), TodoListActivity.class);
                             getActivity().startActivity(intent);
                         }

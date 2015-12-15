@@ -1,5 +1,6 @@
 package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -36,8 +37,26 @@ public class Todo extends MyDeskObject {
         super();
     }
 
-    public Todo(JSONObject jsonTodo) {
-        super(jsonTodo);
+    public Todo(int id, Cursor c) {
+        setId(id);
+        setTitle(c.getString(c.getColumnIndex(TITLE)));
+        setDetails(c.getString(c.getColumnIndex(DETAILS)));
+        setUserid(c.getInt(c.getColumnIndex(USER_ID)));
+        try {
+            setDuedate((new SimpleDateFormat("yyyy-MM-dd")).parse(c.getString(c.getColumnIndex(DUE_DATE))));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        setCompleted(Boolean.valueOf(c.getString(c.getColumnIndex(COMPLETED))));
+    }
+
+    public Todo(Cursor c) {
+        this(c.getInt(c.getColumnIndex(ID)), c);
+    }
+
+    @Override
+    public void updateUsingJSONObject(JSONObject jsonTodo) {
+        super.updateUsingJSONObject(jsonTodo);
         setUserid(jsonTodo.optInt("userid"));
         setTitle(jsonTodo.optString("title"));
         setDetails(jsonTodo.optString("details"));
