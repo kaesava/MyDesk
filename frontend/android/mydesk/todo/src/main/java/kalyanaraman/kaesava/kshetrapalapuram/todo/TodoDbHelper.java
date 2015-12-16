@@ -9,6 +9,8 @@ import android.provider.BaseColumns;
 
 import java.text.SimpleDateFormat;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskApp;
+
 public class TodoDbHelper extends SQLiteOpenHelper {
 
     private static TodoDbHelper instance = null;
@@ -19,7 +21,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         this.context = context;
     }
 
-    public static TodoDbHelper getInstance(Context context) {
+    public static TodoDbHelper getInstance() {
         /**
          * use the application context.
          * this will ensure that you dont accidentally leak an Activity's
@@ -27,7 +29,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
          * http://developer.android.com/resources/articles/avoiding-memory-leaks.html)
          */
         if (instance == null) {
-            instance = new TodoDbHelper(context.getApplicationContext());
+            instance = new TodoDbHelper(MyDeskApp.appContext);
         }
         return instance;
     }

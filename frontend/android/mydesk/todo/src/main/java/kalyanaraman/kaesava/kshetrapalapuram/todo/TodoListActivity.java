@@ -21,7 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskApp;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskListActivity;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskRESTClient;
 
 /**
@@ -64,16 +66,18 @@ public class TodoListActivity extends MyDeskListActivity {
         });
 
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.GONE);
 
         View recyclerView = findViewById(R.id.todo_list);
         assert recyclerView != null;
 
         setupRecyclerView((RecyclerView) recyclerView, progressBar);
 
-        objectList = new TodoList();
-        objectList.addListener((RecyclerView) recyclerView);
-
-        MyDeskRESTClient.syncObjectList(objectList, MyDeskRESTClient.GET);
+        objectList = TodoList.getInstace();
+        //TODO: Determine when to go to server, and when to use local db
+        //MyDeskRESTClient.syncObjectList(objectList, MyDeskRESTClient.GET);
+        TodoContentProviderHelper.getInstance().select_all((TodoList) objectList);
+        ((RecyclerView) recyclerView).getAdapter().notifyDataSetChanged();
 
         if (findViewById(R.id.todo_detail_container) != null) {
             // The detail container view will be present only in the
@@ -117,9 +121,21 @@ public class TodoListActivity extends MyDeskListActivity {
 
                     Map<String, String> nameValuePairs = new HashMap<String, String>();
                     nameValuePairs.put(Todo.COMPLETED, (isChecked ? "true" : "false"));
-                    boolean send_to_server = true;
-                    List<String> validation_errors = holder.mItem.updateFieldsAsStrings(nameValuePairs, send_to_server);
+                    List<String> validation_errors = holder.mItem.updateFieldsAsStrings(nameValuePairs);
+                    boolean send_to_server = false;
+                    boolean save_to_db = true;
+                    //TODO: set a LAST_WRTE_TO_DB_ERROR_FLAG and LAST_SEND_TO_SERVER_ERROR_FLAG; maybe also read-versions
                     if (validation_errors.isEmpty()) {
+                        if (send_to_server) {
+                            MyDeskRESTClient.syncObject(holder.mItem, MyDeskRESTClient.PUT);
+                        }
+                        if (save_to_db) {
+                            if (!TodoContentProviderHelper.getInstance().update(holder.mItem)) {
+                                validation_errors.add("Error saving");
+                            }
+                        }
+                    }
+                    if (validation_errors.isEmpty() && !holder.mItem.getLastWriteError().equals(MyDeskObject.ERROR_CODE)) {
                         Toast.makeText(getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getBaseContext(), validation_errors.get(0), Toast.LENGTH_SHORT).show();

@@ -1,9 +1,5 @@
 package kalyanaraman.kaesava.kshetrapalapuram;
 
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ProgressBar;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,34 +20,19 @@ public abstract class MyDeskObjectList {
 
     private final List<MyDeskObject> ITEMS = new ArrayList<MyDeskObject>();
     private final Map<Integer, MyDeskObject> ITEM_MAP = new HashMap<Integer, MyDeskObject>();
-    private final List<RecyclerView> RECYCLERVIEW_LISTENERS = new ArrayList<RecyclerView>();
 
     public void clear() {
         ITEM_MAP.clear();
         ITEMS.clear();
-        triggerRecyclerViewRefresh();
     }
 
     public void addItem(MyDeskObject item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getId(), item);
-        triggerRecyclerViewRefresh();
     }
 
     public int getObjectCount() {
         return ITEMS.size();
-    }
-
-    public void addListener(RecyclerView recyclerViewListener) {
-        if (!RECYCLERVIEW_LISTENERS.contains(recyclerViewListener)) {
-            RECYCLERVIEW_LISTENERS.add(recyclerViewListener);
-        }
-    }
-
-    private void triggerRecyclerViewRefresh() {
-        for (int i = 0; i < RECYCLERVIEW_LISTENERS.size(); i++) {
-            RECYCLERVIEW_LISTENERS.get(i).getAdapter().notifyDataSetChanged();
-        }
     }
 
     public MyDeskObject getObjectByPosition(int position) {

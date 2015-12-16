@@ -22,7 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskApp;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskRESTClient;
 
 /**
  * An activity representing a single Todo edit screen. This
@@ -95,8 +97,33 @@ public class TodoEditActivity extends AppCompatActivity implements TodoEditFragm
         nameValuePairs.put(Todo.COMPLETED, completed);
         nameValuePairs.put(Todo.DUE_DATE, duedate);
 
-        boolean send_to_server = true;
-        List<String> validation_errors = todo.updateFieldsAsStrings(nameValuePairs, send_to_server);
+        boolean save_to_db = true;
+        boolean send_to_server = false;
+        List<String> validation_errors = todo.updateFieldsAsStrings(nameValuePairs);
+        if (validation_errors.isEmpty()) {
+            if (todo.getId() == 0) { //new
+                if (send_to_server) {
+                    MyDeskRESTClient.syncObject(todo, MyDeskRESTClient.POST);
+                }
+                if (save_to_db) {
+                    if (!TodoContentProviderHelper.getInstance().insert(todo)) {
+                        validation_errors.add("Error saving");
+                    }
+                }
+            } else { // update
+                if (send_to_server) {
+                    MyDeskRESTClient.syncObject(todo, MyDeskRESTClient.PUT);
+                }
+                if (save_to_db) {
+                    if (!TodoContentProviderHelper.getInstance().update(todo)) {
+                        validation_errors.add("Error saving");
+                    }
+                }
+            }
+            if (validation_errors.isEmpty() && !todo.getLastWriteError().equals(MyDeskObject.ERROR_CODE)) {
+                validation_errors.add("Error saving");
+            }
+        }
         if (validation_errors.isEmpty()) {
             Toast.makeText(getBaseContext(), R.string.toastmsg_saved, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this.getApplicationContext(), TodoListActivity.class);

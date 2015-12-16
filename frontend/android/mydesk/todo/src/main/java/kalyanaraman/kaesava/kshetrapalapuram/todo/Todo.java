@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskApp;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObject;
 import kalyanaraman.kaesava.kshetrapalapuram.MyDeskRESTClient;
 
@@ -43,11 +44,17 @@ public class Todo extends MyDeskObject {
         setDetails(c.getString(c.getColumnIndex(DETAILS)));
         setUserid(c.getInt(c.getColumnIndex(USER_ID)));
         try {
-            setDuedate((new SimpleDateFormat("yyyy-MM-dd")).parse(c.getString(c.getColumnIndex(DUE_DATE))));
+            if (!c.getString(c.getColumnIndex(DUE_DATE)).equals("")) {
+                setDuedate((new SimpleDateFormat("yyyy-MM-dd")).parse(c.getString(c.getColumnIndex(DUE_DATE))));
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        setCompleted(Boolean.valueOf(c.getString(c.getColumnIndex(COMPLETED))));
+        if (!c.getString(c.getColumnIndex(COMPLETED)).equals("")) {
+            setCompleted(Boolean.valueOf(c.getString(c.getColumnIndex(COMPLETED))));
+        } else {
+            setCompleted(false);
+        }
     }
 
     public Todo(Cursor c) {
@@ -122,7 +129,7 @@ public class Todo extends MyDeskObject {
         //TODO: Validate other fields
     }
 
-    public List<String> updateFieldsAsStrings(Map<String, String> nameValuePairs, boolean send_to_server) {
+    public List<String> updateFieldsAsStrings(Map<String, String> nameValuePairs) {
         List<String> validation_errors = Todo.validateFieldsAsStrings(nameValuePairs);
         if (!validation_errors.isEmpty()) {
             return validation_errors;
@@ -142,18 +149,7 @@ public class Todo extends MyDeskObject {
             if (field_name.equals(TITLE)) setTitle(value);
             if (field_name.equals(DETAILS)) setDetails(value);
         }
-        if (!send_to_server) {
-            return validation_errors;
-        }
-        if (getId() == 0) {
-            MyDeskRESTClient.syncObject(this, MyDeskRESTClient.POST);
-        } else {
-            MyDeskRESTClient.syncObject(this, MyDeskRESTClient.PUT);
-        }
-        if (getLastWriteError().equals(MyDeskObject.ERROR_CODE)) {
-            validation_errors.add("Error saving");
-            return validation_errors;
-        }
+        // TODO: Allow rollback for fails
         return validation_errors;
     }
 

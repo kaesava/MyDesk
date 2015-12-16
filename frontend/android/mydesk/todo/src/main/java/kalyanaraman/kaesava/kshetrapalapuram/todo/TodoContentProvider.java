@@ -1,7 +1,10 @@
 package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,28 +12,37 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import kalyanaraman.kaesava.kshetrapalapuram.MyDeskApp;
+
 /**
  * Created by kaesava on 15/12/15.
  */
 public class TodoContentProvider extends ContentProvider {
 
     public static final String AUTHORITY = "kalyanaraman.kaesava.kshetrapalapuram.provider.mydesk";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/todos");
+    public static final String ENTITY_NAME = "todos";
+    public static final String CONTENT_URI_STRING = "content://" + AUTHORITY + "/" + ENTITY_NAME;
     private static final int URI_MATCH_CODE_ALL_TODOS = 1;
     private static final int URI_MATCH_CODE_SINGLE_TODO = 2;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-    private TodoDbHelper todoDbHelper;
 
     static {
-        sUriMatcher.addURI(TodoContentProvider.AUTHORITY, "todos", URI_MATCH_CODE_ALL_TODOS);
-        sUriMatcher.addURI(TodoContentProvider.AUTHORITY, "todos/#", URI_MATCH_CODE_SINGLE_TODO);
+        sUriMatcher.addURI(AUTHORITY, ENTITY_NAME, URI_MATCH_CODE_ALL_TODOS);
+        sUriMatcher.addURI(AUTHORITY, ENTITY_NAME + "/#", URI_MATCH_CODE_SINGLE_TODO);
+    }
+
+    private TodoDbHelper todoDbHelper;
+
+    public TodoContentProvider() {
+        super();
+        onCreate();
     }
 
     @Override
     public boolean onCreate() {
-        if(todoDbHelper == null) {
-            todoDbHelper = TodoDbHelper.getInstance(getContext());
+        if (todoDbHelper == null) {
+            todoDbHelper = TodoDbHelper.getInstance();
         }
         return false;
     }
@@ -40,28 +52,12 @@ public class TodoContentProvider extends ContentProvider {
 
         switch (sUriMatcher.match(uri)) {
             case URI_MATCH_CODE_ALL_TODOS:
-                return "vnd.android.cursor.dir/vnd." + AUTHORITY;
+                return "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + ENTITY_NAME;
             case URI_MATCH_CODE_SINGLE_TODO:
-                return "vnd.android.cursor.item/vnd." + AUTHORITY;
+                return "vnd.android.cursor.item/vnd." + AUTHORITY + "." + ENTITY_NAME;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
-    }
-
-    @Override
-    public Uri insert(Uri uri, ContentValues values) {
-
-        SQLiteDatabase db = todoDbHelper.getWritableDatabase();
-        long id = 0;
-        switch (sUriMatcher.match(uri)) {
-            case URI_MATCH_CODE_SINGLE_TODO:
-                id = db.insert(TodoDbHelper.TABLE_NAME, null, values);
-                getContext().getContentResolver().notifyChange(uri, null);
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported URI: " + uri);
-        }
-        return Uri.parse(CONTENT_URI + "/" + String.valueOf(id));
     }
 
 
@@ -97,6 +93,22 @@ public class TodoContentProvider extends ContentProvider {
 
     }
 
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+
+        SQLiteDatabase db = todoDbHelper.getWritableDatabase();
+        long _id = 0;
+        switch (sUriMatcher.match(uri)) {
+            case URI_MATCH_CODE_ALL_TODOS:
+                _id = db.insert(TodoDbHelper.TABLE_NAME, null, values);
+                getContext().getContentResolver().notifyChange(uri, null);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+        return Uri.parse(Uri.parse(CONTENT_URI_STRING) + "/" + String.valueOf(_id));
+    }
+
     // The delete() method deletes rows based on the seletion or if an id is
     // provided then it deleted a single row. The methods returns the numbers
     // of records delete from the database. If you choose not to delete the data
@@ -104,21 +116,21 @@ public class TodoContentProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         SQLiteDatabase db = todoDbHelper.getWritableDatabase();
+        int deleteCount = -1;
         switch (sUriMatcher.match(uri)) {
             case URI_MATCH_CODE_ALL_TODOS:
                 //do nothing
+                deleteCount = 0;
                 break;
             case URI_MATCH_CODE_SINGLE_TODO:
-                String id = uri.getPathSegments().get(1);
-                selection = Todo.ID + "=" + id
-                        + (!TextUtils.isEmpty(selection) ?
-                        " AND (" + selection + ')' : "");
+                // selection has already been made
+                deleteCount = db.delete(TodoDbHelper.TABLE_NAME, selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
-        int deleteCount = db.delete(TodoDbHelper.TABLE_NAME, selection, selectionArgs);
-        getContext().getContentResolver().notifyChange(uri, null);
+
         return deleteCount;
     }
 
@@ -129,21 +141,20 @@ public class TodoContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
         SQLiteDatabase db = todoDbHelper.getWritableDatabase();
+        int updateCount = -1;
         switch (sUriMatcher.match(uri)) {
             case URI_MATCH_CODE_ALL_TODOS:
                 //do nothing
+                updateCount = 0;
                 break;
             case URI_MATCH_CODE_SINGLE_TODO:
-                String id = uri.getPathSegments().get(1);
-                selection = Todo.ID + "=" + id
-                        + (!TextUtils.isEmpty(selection) ?
-                        " AND (" + selection + ')' : "");
+                // selection has already been made
+                updateCount = db.update(TodoDbHelper.TABLE_NAME, values, selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
-        int updateCount = db.update(TodoDbHelper.TABLE_NAME, values, selection, selectionArgs);
-        getContext().getContentResolver().notifyChange(uri, null);
         return updateCount;
     }
 

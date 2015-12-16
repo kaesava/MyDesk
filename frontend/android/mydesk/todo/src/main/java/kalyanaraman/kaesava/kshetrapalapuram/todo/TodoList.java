@@ -9,7 +9,13 @@ import kalyanaraman.kaesava.kshetrapalapuram.MyDeskObjectList;
  */
 public class TodoList extends MyDeskObjectList {
 
-    public TodoList() {
+    private static final TodoList instance = new TodoList();
+
+    private TodoList() {
         super();
+    }
+
+    public static TodoList getInstace() {
+        return instance;
     }
 }

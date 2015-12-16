@@ -2,6 +2,7 @@ package kalyanaraman.kaesava.kshetrapalapuram.todo;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,45 +18,44 @@ import java.text.SimpleDateFormat;
 public class TodoContentProviderHelper {
 
     private static TodoContentProvider todoContentProvider = null;
+    private static TodoContentProviderHelper instance = null;
 
-    public static TodoContentProvider getContentProviderInstance() {
-        if (todoContentProvider == null) {
+    public static TodoContentProviderHelper getInstance() {
+        if (instance == null) {
+            instance = new TodoContentProviderHelper();
             todoContentProvider = new TodoContentProvider();
         }
-        return todoContentProvider;
+        return instance;
     }
 
     private TodoContentProviderHelper() {
     }
 
-    public TodoList select_all() {
-        // get the data repository in write mode
-        Uri uri = Uri.parse(TodoContentProvider.AUTHORITY);
+    public int select_all(TodoList todoList) {
+        Uri uri = Uri.parse(TodoContentProvider.CONTENT_URI_STRING);
 
-        TodoList todoList = null;
         String[] columns = {Todo.ID, Todo.TITLE, Todo.DETAILS, Todo.DUE_DATE, Todo.COMPLETED, Todo.USER_ID};
         String selection = "";
-        String[] selectionArgs = {""};
-        Cursor c = todoContentProvider.query(uri, columns, selection, selectionArgs,"");
-
+        String[] selectionArgs = new String[0];
+        Cursor c = todoContentProvider.query(uri, columns, selection, selectionArgs, "");
+        todoList.clear();
         if (c.moveToFirst()) {
-            todoList = new TodoList();
+
             while (!c.isAfterLast()) {
                 todoList.addItem(new Todo(c));
                 c.moveToNext();
             }
         }
-        return todoList;
+        return c.getCount();
     }
 
     public Todo select(int id) {
-        // get the data repository in write mode
-        SQLiteDatabase db = getReadableDatabase();
+        Uri uri = Uri.parse(TodoContentProvider.CONTENT_URI_STRING + "/" + String.valueOf(id));
         Todo todo = null;
         String[] columns = {Todo.TITLE, Todo.DETAILS, Todo.DUE_DATE, Todo.COMPLETED, Todo.USER_ID};
         String selection = Todo.ID + " = ?";
         String[] selectionArgs = {String.valueOf(id)};
-        Cursor c = db.query(TABLE_NAME, columns, selection, selectionArgs, "", "", "");
+        Cursor c = todoContentProvider.query(uri, columns, selection, selectionArgs, "");
         if (c.moveToFirst()) {
             todo = new Todo(id, c);
             return todo;
@@ -63,9 +63,8 @@ public class TodoContentProviderHelper {
         return null;
     }
 
-    public long insert(Todo todo) {
-        // get the data repository in write mode
-        SQLiteDatabase db = getWritableDatabase();
+    public boolean insert(Todo todo) {
+        Uri uri = Uri.parse(TodoContentProvider.CONTENT_URI_STRING);
 
         // create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
@@ -77,12 +76,12 @@ public class TodoContentProviderHelper {
         values.put(Todo.COMPLETED, todo.isCompleted());
 
         // insert the new row, returning the primary key value of the new row
-        return db.insert(TABLE_NAME, Todo.ID, values);
+        return todoContentProvider.insert(uri, values) != null;
     }
 
     public boolean update(Todo todo) {
-        // get the data repository in write mode
-        SQLiteDatabase db = getWritableDatabase();
+        int id = todo.getId();
+        Uri uri = Uri.parse(TodoContentProvider.CONTENT_URI_STRING + "/" + String.valueOf(id));
 
         // create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
@@ -92,19 +91,18 @@ public class TodoContentProviderHelper {
         values.put(Todo.DUE_DATE, (new SimpleDateFormat("yyyy-MM-dd")).format(todo.getDuedate()));
         values.put(Todo.COMPLETED, todo.isCompleted());
 
-        String whereClause = "where " + Todo.ID + " = ?";
+        String whereClause = Todo.ID + " = ?";
         String whereArgs[] = {String.valueOf(todo.getId())};
         // insert the new row, returning the primary key value of the new row
-        return db.update(TABLE_NAME, values, whereClause, whereArgs) == 1;
+        return todoContentProvider.update(uri, values, whereClause, whereArgs) == 1;
     }
 
-    public boolean delete(Todo todo) {
-        // get the data repository in write mode
-        SQLiteDatabase db = getWritableDatabase();
+    public boolean delete(int id) {
+        Uri uri = Uri.parse(TodoContentProvider.CONTENT_URI_STRING + "/" + String.valueOf(id));
 
-        String whereClause = "where " + Todo.ID + " = ?";
-        String whereArgs[] = {String.valueOf(todo.getId())};
+        String whereClause = Todo.ID + " = ?";
+        String whereArgs[] = {String.valueOf(id)};
         // insert the new row, returning the primary key value of the new row
-        return db.delete(TABLE_NAME, whereClause, whereArgs) == 1;
+        return todoContentProvider.delete(uri, whereClause, whereArgs) == 1;
     }
 }
